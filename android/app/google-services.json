@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "227083608436",
+    "firebase_url": "https://siska-794a6.firebaseio.com",
+    "project_id": "siska-794a6",
+    "storage_bucket": "siska-794a6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227083608436:android:88a7620ad15f76bed1cc21",
+        "android_client_info": {
+          "package_name": "com.pasca.siska"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "227083608436-l1h8ac6nfr6khvv76gcdo7aea28c5ciq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCiv5vxGYZXPvjCvc8gFylyCTMQYqtwdOI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "227083608436-l1h8ac6nfr6khvv76gcdo7aea28c5ciq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

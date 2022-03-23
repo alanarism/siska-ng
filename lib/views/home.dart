@@ -69,32 +69,20 @@ class _HomePageState extends State<HomePage> {
       items: [
         BottomNavigationBarItem(
           icon: Icon(Icons.timeline),
-          title: Text(
-            'Timeline',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Timeline',
         ),
         
         BottomNavigationBarItem(
           icon: Icon(Icons.rss_feed),
-          title: Text(
-            'Berita',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Berita'
         ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.calendar),
-          title: Text(
-            'Jadwal',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Jadwal',
         ),
         BottomNavigationBarItem(
           icon: Icon(LineIcons.book),
-          title: Text(
-            'Penelitian',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Penelitian',
         ),
 
         _jumlahUnread!='0'?
@@ -119,26 +107,17 @@ class _HomePageState extends State<HomePage> {
                                 ),     
             ),
           ),
-          title: Text(
-            'Notifikasi',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Notifikasi',
         ):  BottomNavigationBarItem(
           icon: Icon(Icons.notifications),
-          title: Text(
-            'Notifikasi',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Notifikasi',
         ),
 
 
 
         BottomNavigationBarItem(
           icon: Icon(LineIcons.user),
-          title: Text(
-            'Profile',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
+          label: 'Profile',
         )
       ],
     );

@@ -32,6 +32,7 @@ apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
     compileSdkVersion 29
+    buildToolsVersion "29.0.0"
 
     lintOptions {
         disable 'InvalidPackage'
@@ -76,9 +77,18 @@ flutter {
 
 dependencies {
     testImplementation 'junit:junit:4.13'
-    implementation 'com.google.firebase:firebase-core:17.0.1'
+    implementation 'com.google.firebase:firebase-messaging:20.0.0'
+    // implementation 'com.google.firebase:firebase-core:17.0.1'
 //    implementation 'com.google.firebase:firebase-core:17.5.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    
+    //mew config
+    //implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //implementation 'com.android.support:multidex:1.0.3'
+    // implementation 'com.google.android.gms:play-services-vision:20.1.1'
+    // implementation 'com.google.android.gms:play-services-vision-common:19.1.1'
+    // implementation 'com.google.android.gms:play-services-vision-image-label:18.0.5'
+    //implementation "com.google.firebase:firebase-ml-vision:24.1.0"
 }
  apply plugin: 'com.google.gms.google-services'

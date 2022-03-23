@@ -52,16 +52,16 @@ void initState() {
           apiService.updateToken(token);
           });
 
-        _firebaseMessaging.configure(
-          onMessage: (Map<String, dynamic> message) async {
-            print("onMessage: $message");
-        },
-              
-        onResume: (Map<String, dynamic> message) async {
-          print("onResume: $message");
-          //_navigateToItemDetail(message);
-        },
-        );
+       // _firebaseMessaging.configure(
+       //   onMessage: (Map<String, dynamic> message) async {
+       //     print("onMessage: $message");
+       // },
+       //       
+       // onResume: (Map<String, dynamic> message) async {
+       //   print("onResume: $message");
+       //   //_navigateToItemDetail(message);
+       // },
+       // );
   }
 
 
@@ -116,7 +116,7 @@ void initState() {
                 ),
                 Text(
                   doodle.name,
-                  style: textTheme.title,
+                  style: textTheme.headline1,
                   // style: textTheme.headline6,
                   textAlign: TextAlign.center,
                  ),

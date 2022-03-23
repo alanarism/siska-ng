@@ -98,16 +98,16 @@ class _MasastudiScreenState extends State<MasastudiScreen> {
           apiService.updateToken(token);
           });
 
-        _firebaseMessaging.configure(
-          onMessage: (Map<String, dynamic> message) async {
-            print("onMessage: $message");
-        },
-              
-        onResume: (Map<String, dynamic> message) async {
-          print("onResume: $message");
-          //_navigateToItemDetail(message);
-        },
-        );
+      //  _firebaseMessaging.configure(
+      //    onMessage: (Map<String, dynamic> message) async {
+      //      print("onMessage: $message");
+      //  },
+      //        
+      //  onResume: (Map<String, dynamic> message) async {
+      //    print("onResume: $message");
+      //    //_navigateToItemDetail(message);
+      //  },
+      //  );
   }
 
     List list = ["Pengajuan", "Proposal", "Pra Tesis", "Tesis","Wisuda"]; 

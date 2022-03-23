@@ -49,16 +49,16 @@ class _NewsScreenState extends State<NewsScreen> {
           apiService.updateToken(token);
           });
 
-        _firebaseMessaging.configure(
-          onMessage: (Map<String, dynamic> message) async {
-            print("onMessage: $message");
-        },
-              
-        onResume: (Map<String, dynamic> message) async {
-          print("onResume: $message");
-          //_navigateToItemDetail(message);
-        },
-        );
+       // _firebaseMessaging.configure(
+       //   onMessage: (Map<String, dynamic> message) async {
+       //     print("onMessage: $message");
+       // },
+       //       
+       // onResume: (Map<String, dynamic> message) async {
+       //   print("onResume: $message");
+       //   //_navigateToItemDetail(message);
+       // },
+       // );
   }
 
    void filterData(String key) async{

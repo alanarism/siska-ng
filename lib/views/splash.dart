@@ -3,68 +3,79 @@ import 'package:splashscreen/splashscreen.dart';
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/profile.dart';
 
-
-
 class Splash extends StatefulWidget {
-Splash({Key key}):super(key: key);
-  _Splash createState()=> _Splash();
+  Splash({Key key}) : super(key: key);
+  _Splash createState() => _Splash();
 }
 
 class _Splash extends State<Splash> {
   List<Profile> listProfile = new List<Profile>();
-   ApiService apiService = new ApiService();
+  ApiService apiService = new ApiService();
   @override
   Widget build(BuildContext context) {
- apiService.getAuth().then((success) async {
-  
-        if (success) {
-           apiService.getAuthJab().then((jab) async {
-             if (jab=='1') {
-              // setState(() {
-                  // Navigator.pushNamed(context, profileViewRoute);    
-                    Navigator.pushReplacementNamed(context, 'homeAdmin',arguments: 0,);
-               // });
-             }else if(jab=='0'){
-               // setState(() {
-                // Navigator.pushNamed(context, homeAdminViewRoute,);    
-                   Navigator.pushReplacementNamed(context, 'home',arguments: 0,);
-                   //Navigator.pushNamed(context, homeAdminViewRoute,arguments: 0, );
-                //});
-             }else{
-               // setState(() {
-                // Navigator.pushNamed(context, homeAdminViewRoute,);    
-                   Navigator.pushReplacementNamed(context, 'homeDosen',arguments: 0,);
-                   //Navigator.pushNamed(context, homeAdminViewRoute,arguments: 0, );
-                //});
+    apiService.getAuth().then((success) async {
+      if (success) {
+        apiService.getAuthJab().then((jab) async {
+          if (jab == '1') {
+            // setState(() {
+            // Navigator.pushNamed(context, profileViewRoute);
+            Navigator.pushReplacementNamed(
+              context,
+              'homeAdmin',
+              arguments: 0,
+            );
+            // });
+          } else if (jab == '0') {
+            // setState(() {
+            // Navigator.pushNamed(context, homeAdminViewRoute,);
+            Navigator.pushReplacementNamed(
+              context,
+              'home',
+              arguments: 0,
+            );
+            //Navigator.pushNamed(context, homeAdminViewRoute,arguments: 0, );
+            //});
+          } else {
+            // setState(() {
+            // Navigator.pushNamed(context, homeAdminViewRoute,);
+            Navigator.pushReplacementNamed(
+              context,
+              'homeDosen',
+              arguments: 0,
+            );
+            //Navigator.pushNamed(context, homeAdminViewRoute,arguments: 0, );
+            //});
 
-             }
-            });
-
-      
-    }else{
-        setState(() {
-       //Navigator.pushNamed(context, landingViewRoute);
-         Navigator.pushReplacementNamed(context, '/'); 
+          }
         });
-    }
+      } else {
+        // *cause of error flicker ; dev comment : teguh
+        //   setState(() {
+        //  //Navigator.pushNamed(context, landingViewRoute);
+        //    Navigator.pushReplacementNamed(context, '/');
+        //   });
+
+        //The solution.
+        Navigator.pushNamed(context, "/");
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+      }
     });
 
     return Center(
       child: SplashScreen(
-      seconds: 1,
-      title: new Text('SisKa'),
-      image: new Image.asset('assets/images/LogoUndiksha.png'),
-      backgroundColor: Colors.white,
-      styleTextUnderTheLoader: new TextStyle(),
-      photoSize: 100.0,
-      loaderColor: Colors.blue
-    ),
+          seconds: 1,
+          title: new Text('SisKa'),
+          image: new Image.asset('assets/images/LogoUndiksha.png'),
+          backgroundColor: Colors.white,
+          styleTextUnderTheLoader: new TextStyle(),
+          photoSize: 100.0,
+          loaderColor: Colors.blue),
     );
   }
 }
 
 // class AfterSplash extends StatelessWidget {
- 
 
 //   Widget build(BuildContext context) {
 //     checkIfAuthenticated().then((success) {

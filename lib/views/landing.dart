@@ -5,10 +5,18 @@ import 'package:SisKa/utils/utils.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
 class LandingPage extends StatelessWidget {
+  // void homePage(BuildContext context) {
+  //   //The solution.
+  //   Navigator.pushNamed(context, "/");
+
+  //   Navigator.of(context)
+  //       .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+  // }
+
   @override
   Widget build(BuildContext context) {
-   FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
-   FlutterStatusbarcolor.setNavigationBarColor(Colors.blue);
+    FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
+    FlutterStatusbarcolor.setNavigationBarColor(Colors.blue);
 
     final logo = Container(
       height: 100.0,
@@ -35,10 +43,7 @@ class LandingPage extends StatelessWidget {
         Text(
           AppConfig.appTagline,
           style: TextStyle(
-            color: Colors.white,
-            fontSize: 15.0,
-            fontWeight: FontWeight.w500
-          ),
+              color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.w500),
           textAlign: TextAlign.center,
         )
       ],
@@ -67,7 +72,7 @@ class LandingPage extends StatelessWidget {
     //   ),
     // );
 
-      final loginBtn = Container(
+    final loginBtn = Container(
       height: 60.0,
       width: MediaQuery.of(context).size.width,
       decoration: BoxDecoration(
@@ -91,7 +96,6 @@ class LandingPage extends StatelessWidget {
         ),
       ),
     );
-
 
     final registerBtn = Container(
       height: 60.0,
@@ -126,18 +130,20 @@ class LandingPage extends StatelessWidget {
         right: 30.0,
       ),
       child: Column(
-        children: <Widget>[loginBtn, 
-        SizedBox(height: 20.0), 
-        registerBtn,
-        SizedBox(height: 20.0),
-        Text(
-          '',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            color: Colors.white,
-            fontSize: 10.0,
+        children: <Widget>[
+          loginBtn,
+          SizedBox(height: 20.0),
+          registerBtn,
+          SizedBox(height: 20.0),
+          Text(
+            '',
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              color: Colors.white,
+              fontSize: 10.0,
+            ),
           ),
-        ),],
+        ],
       ),
     );
 

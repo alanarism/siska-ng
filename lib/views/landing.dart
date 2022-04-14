@@ -1,10 +1,57 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:SisKa/_routing/routes.dart';
 import 'package:SisKa/utils/colors.dart';
 import 'package:SisKa/utils/utils.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
-class LandingPage extends StatelessWidget {
+class LandingPage extends StatefulWidget {
+  @override
+  _SplashScreeneState createState() => _SplashScreeneState();
+}
+
+class _SplashScreeneState extends State<LandingPage> {
+  @override
+  void initState() {
+    super.initState();
+    Timer(
+        Duration(seconds: 1),
+        () => Navigator.pushReplacement(
+            context, MaterialPageRoute(builder: (context) => Landing())));
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/images/bg.png'),
+          fit: BoxFit.fill,
+        ),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            'assets/images/LogoUndiksha.png',
+            height: 200,
+            width: 200,
+          ),
+          Text(
+            "\n\nSistem Informasi Kemajuan Akademik",
+            style: TextStyle(
+                color: Color.fromARGB(255, 3, 6, 163),
+                fontWeight: FontWeight.bold,
+                fontSize: 14,
+                fontFamily: 'Quicksand'),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class Landing extends StatelessWidget {
   // void homePage(BuildContext context) {
   //   //The solution.
   //   Navigator.pushNamed(context, "/");

@@ -5,8 +5,7 @@ import 'package:SisKa/models/penelitian.dart';
 import 'package:SisKa/models/timelineModel.dart';
 import 'package:SisKa/models/api/api_service.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
-import 'package:firebase_messaging/firebase_messaging.dart';
-
+// import 'package:firebase_messaging/firebase_messaging.dart';
 
 class TimelinePage extends StatefulWidget {
   final String nim;
@@ -14,68 +13,63 @@ class TimelinePage extends StatefulWidget {
   _TimelinePageState createState() => _TimelinePageState();
 }
 
-
- 
-
 class _TimelinePageState extends State<TimelinePage> {
   final PageController pageController =
       PageController(initialPage: 1, keepPage: true);
-       final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
-      ApiService apiService = new ApiService();
-   List<TimelineModelData> listData = new List<TimelineModelData>();
-    List<Penelitian> listPenelitian = new List<Penelitian>();
+  //  final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  ApiService apiService = new ApiService();
+  List<TimelineModelData> listData = new List<TimelineModelData>();
+  List<Penelitian> listPenelitian = new List<Penelitian>();
   int pageIx = 1;
 
-void initState() {
+  void initState() {
     super.initState();
-      BackButtonInterceptor.add(myInterceptor);
-   loadData() ;
-   fetchNews();
-}
+    BackButtonInterceptor.add(myInterceptor);
+    loadData();
+    fetchNews();
+  }
+
   @override
   void dispose() {
     BackButtonInterceptor.remove(myInterceptor);
     super.dispose();
   }
+
   bool myInterceptor(bool stopDefaultButtonEvent) {
     return true;
   }
 
-  void loadData() async{
-  final listDataget = await apiService.getTimeline(widget.nim);
-      setState(() {
-         listData = listDataget;
-      });
-  }
-   void fetchNews() async{
-        _firebaseMessaging.getToken().then((token){
-          apiService.updateToken(token);
-          });
-
-       // _firebaseMessaging.configure(
-       //   onMessage: (Map<String, dynamic> message) async {
-       //     print("onMessage: $message");
-       // },
-       //       
-       // onResume: (Map<String, dynamic> message) async {
-       //   print("onResume: $message");
-       //   //_navigateToItemDetail(message);
-       // },
-       // );
+  void loadData() async {
+    final listDataget = await apiService.getTimeline(widget.nim);
+    setState(() {
+      listData = listDataget;
+    });
   }
 
+  void fetchNews() async {
+    // _firebaseMessaging.getToken().then((token) {
+    //   apiService.updateToken(token);
+    // });
 
+    // _firebaseMessaging.configure(
+    //   onMessage: (Map<String, dynamic> message) async {
+    //     print("onMessage: $message");
+    // },
+    //
+    // onResume: (Map<String, dynamic> message) async {
+    //   print("onResume: $message");
+    //   //_navigateToItemDetail(message);
+    // },
+    // );
+  }
 
   @override
   Widget build(BuildContext context) {
-   
-
     return Scaffold(
         appBar: AppBar(
           title: Text('Timeline Penelitian'),
         ),
-        body: timelineModel(TimelinePosition.Center)
-        );
+        body: timelineModel(TimelinePosition.Center));
   }
 
   timelineModel(TimelinePosition position) => Timeline.builder(
@@ -96,16 +90,16 @@ void initState() {
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
           clipBehavior: Clip.antiAlias,
           child: Padding(
-            padding: const EdgeInsets.only(left:20.0,right:20.0, bottom: 15),
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15),
             child: Column(
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Column( // Replace with a Row for horizontal icon + text
+                Column(
+                  // Replace with a Row for horizontal icon + text
                   children: <Widget>[
-                    doodle.backicon ,
+                    doodle.backicon,
                   ],
                 ),
-
                 const SizedBox(
                   height: 8.0,
                   width: 20,
@@ -119,11 +113,13 @@ void initState() {
                   style: textTheme.headline1,
                   // style: textTheme.headline6,
                   textAlign: TextAlign.center,
-                 ),
+                ),
                 const SizedBox(
                   height: 8.0,
                 ),
-               doodle.status !=null? Text(doodle.status, style: textTheme.caption):null,
+                doodle.status != null
+                    ? Text(doodle.status, style: textTheme.caption)
+                    : null,
               ],
             ),
           ),
@@ -133,7 +129,6 @@ void initState() {
         isFirst: i == 0,
         isLast: i == listData.length,
         iconBackground: doodle.iconBackground,
-        icon: doodle.icon
-        );
+        icon: doodle.icon);
   }
 }

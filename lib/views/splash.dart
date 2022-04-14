@@ -65,7 +65,6 @@ class _Splash extends State<Splash> {
     return Center(
       child: SplashScreen(
           seconds: 1,
-          title: new Text('SisKa'),
           image: new Image.asset('assets/images/LogoUndiksha.png'),
           backgroundColor: Colors.white,
           styleTextUnderTheLoader: new TextStyle(),

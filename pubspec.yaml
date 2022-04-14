@@ -52,7 +52,7 @@ dependencies:
   flutter_widget_from_html_core: 0.3.3+4 # INITIAL
   #  flutter_widget_from_html_core: ^0.5.1	# Incompatible w/ this flutter version
   gradient_text: 1.0.2 # INITIAL
-  http: 0.12.1 # INITIAL
+  http: 0.12.2 # INITIAL
   #  http: ^0.12.2  # ?
   image_picker: 0.6.7 # INITIAL
   #  image_picker: ^0.6.7+11 # https://github.com/flutter/flutter/issues/58479 (use Gradle plugin 3.6.4!)
@@ -105,6 +105,8 @@ flutter:
     #   - assets/images/woman3.jpg
     #   - assets/images/woman4.jpg
     #   - assets/images/woman5.jpg
+    - assets/
+    - assets/images/
     - assets/images/home_page.png
     - assets/images/logo.png
     - assets/images/empty.png
@@ -115,6 +117,11 @@ flutter:
     - assets/images/notfound.png
     - assets/images/nodata.png
     - assets/images/notfound.gif
+    - assets/images/bg.png
+    - assets/images/logo1.png
+    - assets/images/icon-password.png
+    - assets/images/icon-username.png
+    - assets/images/waves.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

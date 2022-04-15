@@ -1,3 +1,7 @@
+import 'dart:async';
+import 'package:SisKa/_routing/routes.dart';
+import 'package:SisKa/views/landing.dart';
+import 'package:SisKa/views/login.dart';
 import 'package:flutter/material.dart';
 import 'package:splashscreen/splashscreen.dart';
 import 'package:SisKa/models/api/api_service.dart';
@@ -49,24 +53,18 @@ class _Splash extends State<Splash> {
           }
         });
       } else {
-        // *cause of error flicker ; dev comment : teguh
-        //   setState(() {
-        //  //Navigator.pushNamed(context, landingViewRoute);
-        //    Navigator.pushReplacementNamed(context, '/');
-        //   });
-
-        //The solution.
-        Navigator.pushNamed(context, "/");
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+        Timer(
+            Duration(seconds: 1),
+            () => Navigator.pushReplacement(context,
+                MaterialPageRoute(builder: (context) => LandingPage())));
       }
     });
-
     return Center(
       child: SplashScreen(
-          seconds: 1,
+          seconds: 0,
+          title: new Text('Sistem Informasi Kemajuan Akademik'),
           image: new Image.asset('assets/images/LogoUndiksha.png'),
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.lightBlueAccent,
           styleTextUnderTheLoader: new TextStyle(),
           photoSize: 100.0,
           loaderColor: Colors.blue),

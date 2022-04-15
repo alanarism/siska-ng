@@ -23,16 +23,19 @@ import 'package:SisKa/views/userAllSa.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    case splashViewRoute:
+      return MaterialPageRoute(builder: (context) => Splash());
     case landingViewRoute:
       return MaterialPageRoute(builder: (context) => LandingPage());
     case homeViewRoute:
-      return MaterialPageRoute(builder: (context) => HomePage(index: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => HomePage(index: settings.arguments));
     case homeAdminViewRoute:
-      return MaterialPageRoute(builder: (context) => HomeAdminPage(index: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => HomeAdminPage(index: settings.arguments));
     case homeDosenViewRoute:
-      return MaterialPageRoute(builder: (context) => HomePageDosen(index: settings.arguments));
-    case splashViewRoute:
-      return MaterialPageRoute(builder: (context) => Splash());
+      return MaterialPageRoute(
+          builder: (context) => HomePageDosen(index: settings.arguments));
     case profileViewRoute:
       return MaterialPageRoute(builder: (context) => Profile2());
     case loginViewRoute:
@@ -56,13 +59,17 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case userAllViewRoute:
       return MaterialPageRoute(builder: (context) => UserAllSaScreen());
     case pdfViewRoute:
-      return MaterialPageRoute(builder: (context) => MyApp(url: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => MyApp(url: settings.arguments));
     case timelineViewRoute:
-      return MaterialPageRoute(builder: (context) => TimelinePage(nim: settings.arguments ));
+      return MaterialPageRoute(
+          builder: (context) => TimelinePage(nim: settings.arguments));
     case newsDetailsViewRoute:
-      return MaterialPageRoute(builder: (context) => NewsDetailPage(userId: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => NewsDetailPage(userId: settings.arguments));
     case notifDetailsViewRoute:
-      return MaterialPageRoute(builder: (context) => AktivitasDetilScreen(idNt: settings.arguments));
+      return MaterialPageRoute(
+          builder: (context) => AktivitasDetilScreen(idNt: settings.arguments));
       break;
     default:
       return MaterialPageRoute(builder: (context) => LandingPage());

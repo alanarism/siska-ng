@@ -1,231 +1,103 @@
-import 'dart:async';
+import 'package:SisKa/views/login.dart';
 import 'package:flutter/material.dart';
-import 'package:SisKa/_routing/routes.dart';
-import 'package:SisKa/utils/colors.dart';
-import 'package:SisKa/utils/utils.dart';
-import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:introduction_screen/introduction_screen.dart';
+import 'package:SisKa/widget/button_widget.dart';
 
-class LandingPage extends StatefulWidget {
+class LandingPage extends StatelessWidget {
   @override
-  _SplashScreeneState createState() => _SplashScreeneState();
-}
-
-class _SplashScreeneState extends State<LandingPage> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(
-        Duration(seconds: 1),
-        () => Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => Landing())));
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage('assets/images/bg.png'),
-          fit: BoxFit.fill,
-        ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            'assets/images/LogoUndiksha.png',
-            height: 200,
-            width: 200,
-          ),
-          Text(
-            "\n\nSistem Informasi Kemajuan Akademik",
-            style: TextStyle(
-                color: Color.fromARGB(255, 3, 6, 163),
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
-                fontFamily: 'Quicksand'),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Landing extends StatelessWidget {
-  // void homePage(BuildContext context) {
-  //   //The solution.
-  //   Navigator.pushNamed(context, "/");
-
-  //   Navigator.of(context)
-  //       .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-  // }
-
-  @override
-  Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colors.transparent);
-    FlutterStatusbarcolor.setNavigationBarColor(Colors.blue);
-
-    final logo = Container(
-      height: 100.0,
-      width: 100.0,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AvailableImages.appLogo,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-
-    final appName = Column(
-      children: <Widget>[
-        Text(
-          AppConfig.appName,
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 18.0,
-          ),
-          textAlign: TextAlign.center,
-        ),
-        Text(
-          AppConfig.appTagline,
-          style: TextStyle(
-              color: Colors.white, fontSize: 15.0, fontWeight: FontWeight.w500),
-          textAlign: TextAlign.center,
-        )
-      ],
-    );
-
-    // final loginBtn = InkWell(
-    //   onTap: () => Navigator.pushNamed(context, loginViewRoute),
-    //   child: Container(
-    //     height: 60.0,
-    //     width: MediaQuery.of(context).size.width,
-    //     decoration: BoxDecoration(
-    //       borderRadius: BorderRadius.circular(7.0),
-    //       border: Border.all(color: Colors.white),
-    //       color: Colors.white,
-    //     ),
-    //     child: Center(
-    //       child: Text(
-    //         'LOGIN',
-    //         style: TextStyle(
-    //           fontWeight: FontWeight.w600,
-    //           fontSize: 20.0,
-    //           color: Colors.white,
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
-
-    final loginBtn = Container(
-      height: 60.0,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7.0),
-        border: Border.all(color: Colors.white),
-        color: Colors.white,
-      ),
-      child: RaisedButton(
-        elevation: 5.0,
-        onPressed: () => Navigator.pushNamed(context, loginViewRoute),
-        color: Colors.white,
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(7.0),
-        ),
-        child: Text(
-          'MASUK',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 20.0,
-          ),
-        ),
-      ),
-    );
-
-    final registerBtn = Container(
-      height: 60.0,
-      width: MediaQuery.of(context).size.width,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(7.0),
-        border: Border.all(color: Colors.white),
-        color: Colors.white,
-      ),
-      child: RaisedButton(
-        elevation: 5.0,
-        onPressed: () => Navigator.pushNamed(context, registerViewRoute),
-        color: Colors.white,
-        shape: new RoundedRectangleBorder(
-          borderRadius: new BorderRadius.circular(7.0),
-        ),
-        child: Text(
-          'DAFTAR',
-          style: TextStyle(
-            fontWeight: FontWeight.w600,
-            fontSize: 20.0,
-          ),
-        ),
-      ),
-    );
-
-    final buttons = Padding(
-      padding: EdgeInsets.only(
-        top: 80.0,
-        bottom: 30.0,
-        left: 30.0,
-        right: 30.0,
-      ),
-      child: Column(
-        children: <Widget>[
-          loginBtn,
-          SizedBox(height: 20.0),
-          registerBtn,
-          SizedBox(height: 20.0),
-          Text(
-            '',
-            style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
-              fontSize: 10.0,
+  Widget build(BuildContext context) => SafeArea(
+        child: IntroductionScreen(
+          pages: [
+            PageViewModel(
+              title: 'Pengajuan Proposal dan Tesis',
+              body:
+                  'Anda dapat memebuat pengajuan proposal, ujian tesis, serta melihat timeline proses ujian Anda.',
+              image: buildImage('assets/images/list.jpg'),
+              decoration: getPageDecoration(),
             ),
-          ),
-        ],
-      ),
-    );
-
-    return Scaffold(
-      body: Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              padding: EdgeInsets.only(top: 70.0),
-              decoration: BoxDecoration(gradient: primaryGradient),
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: <Widget>[logo, appName, buttons],
-              ),
+            PageViewModel(
+              title: 'Dosen Pembimbing dan Topik Tesis',
+              body:
+                  'Anda dapat melihat jumlah Mahasiswa yang dibimbing setiap Dosen dan melihat topik dari Mahasiswa lain',
+              image: buildImage('assets/images/dosen.png'),
+              decoration: getPageDecoration(),
             ),
-            Positioned(
-              bottom: 0,
-              child: Padding(
-                padding: EdgeInsets.only(left: 10.0),
-                child: Container(
-                  height: 300.0,
-                  width: MediaQuery.of(context).size.width,
-                  // decoration: BoxDecoration(
-                  //   image: DecorationImage(
-                  //     image: AvailableImages.homePage,
-                  //     fit: BoxFit.contain,
-                  //   ),
-                  // ),
-                ),
+            PageViewModel(
+              title: 'Grafik Topik',
+              body:
+                  'Tersedia grafik untuk mengetahui jumlah judul tesis berdasarkan topik',
+              image: buildImage('assets/images/grafik.png'),
+              decoration: getPageDecoration(),
+            ),
+            PageViewModel(
+              title: 'Sistem Informasi Kemajuan Akademik',
+              body: 'Mulai menggunakan SIsKA',
+              footer: ButtonWidget(
+                text: 'Masuk',
+                onClicked: () => goToHome(context),
               ),
-            )
+              image: buildImage('assets/images/wisuda.jpg'),
+              decoration: getPageDecoration(),
+            ),
           ],
+          done: Text(
+            'Login',
+            style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          onDone: () => goToHome(context),
+          showSkipButton: true,
+          skip: Text(
+            'Skip',
+            style: TextStyle(
+              color: Color.fromARGB(255, 255, 255, 255),
+              fontWeight: FontWeight.bold,
+              fontSize: 16,
+            ),
+          ),
+          onSkip: () => goToHome(context),
+          next: Icon(
+            Icons.arrow_forward,
+            color: Color.fromARGB(255, 255, 255, 255),
+          ),
+          dotsDecorator: getDotDecoration(),
+          onChange: (index) => print('Page $index selected'),
+          globalBackgroundColor: Theme.of(context).primaryColor,
+          skipFlex: 0,
+          nextFlex: 0,
+          // isProgressTap: false,
+          // isProgress: false,
+          // showNextButton: false,
+          // freeze: true,
+          // animationDuration: 1000,
         ),
-      ),
-    );
-  }
+      );
+
+  void goToHome(context) => Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => LoginPage()),
+      );
+
+  Widget buildImage(String path) =>
+      Center(child: Image.asset(path, width: 350));
+
+  DotsDecorator getDotDecoration() => DotsDecorator(
+        color: Color(0xFFBDBDBD),
+        //activeColor: Colors.orange,
+        size: Size(10, 10),
+        activeSize: Size(22, 10),
+        activeShape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(24),
+        ),
+      );
+
+  PageDecoration getPageDecoration() => PageDecoration(
+        titleTextStyle: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        bodyTextStyle: TextStyle(fontSize: 20),
+        descriptionPadding: EdgeInsets.all(16).copyWith(bottom: 0),
+        imagePadding: EdgeInsets.all(24),
+        pageColor: Colors.white,
+      );
 }

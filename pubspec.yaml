@@ -22,6 +22,7 @@ dependencies:
   line_icons: 0.2.0
   platform: ^3.1.0
   firebase_core: "^0.7.0"
+  onesignal_flutter: ^3.0.0
   back_button_interceptor: 4.2.3 # INITIAL
   #  back_button_interceptor: ^4.2.4  # Incompatible w/ this flutter version
   #  back_button_interceptor: ^4.3.1  # Incompatible w/ this flutter version

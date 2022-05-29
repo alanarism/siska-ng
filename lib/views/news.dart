@@ -2,7 +2,7 @@ import 'package:SisKa/models/api/api_service.dart';
 import 'package:SisKa/models/news.dart';
 import 'package:flutter/material.dart';
 import 'package:SisKa/_routing/routes.dart';
-// import 'package:firebase_messaging/firebase_messaging.dart';
+//import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:SisKa/utils/utils.dart';
 import 'package:back_button_interceptor/back_button_interceptor.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
@@ -14,7 +14,10 @@ class NewsScreen extends StatefulWidget {
 }
 
 class _NewsScreenState extends State<NewsScreen> {
-  // final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  //final FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  _NewsScreenState() {
+    //   _firebaseMessaging.getInitialMessage();
+  }
   TextEditingController _textcari = new TextEditingController();
   ApiService apiService = new ApiService();
   List<News> listData = new List<News>();

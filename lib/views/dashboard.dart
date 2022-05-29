@@ -73,7 +73,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
               SizedBox(
                 height: 15.0,
               ),
-              _getkontenJumlahMhs(context),
+              SingleChildScrollView(child: _getkontenJumlahMhs(context)),
               SizedBox(
                 height: 15.0,
               ),
@@ -445,12 +445,20 @@ class MhsDashboard extends StatelessWidget {
     return new charts.BarChart(
       seriesList,
       animate: animate,
-      barGroupingType: charts.BarGroupingType.grouped,
-      vertical: false,
-      defaultInteractions: true,
+      // defaultRenderer: new charts.BarRendererConfig(minBarLengthPx: 40),
+      primaryMeasureAxis: new charts.NumericAxisSpec(
+        tickProviderSpec: new charts.StaticNumericTickProviderSpec(
+          <charts.TickSpec<num>>[
+            charts.TickSpec<num>(0),
+            charts.TickSpec<num>(60),
+          ],
+        ),
+      ),
       behaviors: [
+        new charts.SlidingViewport(),
+        new charts.PanAndZoomBehavior(),
         new charts.SeriesLegend(position: charts.BehaviorPosition.bottom),
-        new charts.ChartTitle('Jumlah Mahasiswa',
+        new charts.ChartTitle('Jumlah Mahasiswa (Scroll chart ke kiri)',
             behaviorPosition: charts.BehaviorPosition.top,
             titleOutsideJustification: charts.OutsideJustification.middle,
             // Set a larger inner padding than the default (10) to avoid
@@ -460,6 +468,9 @@ class MhsDashboard extends StatelessWidget {
             innerPadding: 10),
       ],
       barRendererDecorator: new charts.BarLabelDecorator<String>(),
+      domainAxis: new charts.OrdinalAxisSpec(
+          renderSpec: new charts.NoneRenderSpec(),
+          viewport: new charts.OrdinalViewport('Aktif', 6)),
       // Hide domain axis.
     );
   }
@@ -549,7 +560,7 @@ class TopikPenelitian extends StatelessWidget {
       behaviors: [
         new charts.SlidingViewport(),
         new charts.PanAndZoomBehavior(),
-        new charts.ChartTitle('Topik Penelitian',
+        new charts.ChartTitle('Topik Penelitian (Scroll ke kiri pada Chart)',
             behaviorPosition: charts.BehaviorPosition.top,
             titleOutsideJustification: charts.OutsideJustification.middle,
             // Set a larger inner padding than the default (10) to avoid

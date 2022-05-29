@@ -18,7 +18,7 @@ import 'package:SisKa/views/notifDetil.dart';
 import 'package:SisKa/views/notifPenerima.dart';
 import 'package:SisKa/views/settingProfile.dart';
 import 'package:SisKa/views/masastudi.dart';
-import 'package:SisKa/views/pdf.dart';
+// import 'package:SisKa/views/pdf.dart';
 import 'package:SisKa/views/userAllSa.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
@@ -58,9 +58,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => MasastudiScreen());
     case userAllViewRoute:
       return MaterialPageRoute(builder: (context) => UserAllSaScreen());
-    case pdfViewRoute:
-      return MaterialPageRoute(
-          builder: (context) => MyApp(url: settings.arguments));
+    // case pdfViewRoute:
+    //   return MaterialPageRoute(
+    //       builder: (context) => MyApp(url: settings.arguments));
     case timelineViewRoute:
       return MaterialPageRoute(
           builder: (context) => TimelinePage(nim: settings.arguments));

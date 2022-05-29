@@ -14,7 +14,7 @@ class _MyAppState extends State<MyApp> {
   bool _isLoading = true;
   PDFDocument document;
   List<Penelitian> listData = new List<Penelitian>();
-  String _url ='';
+  String _url = '';
 
   @override
   void initState() {
@@ -28,20 +28,16 @@ class _MyAppState extends State<MyApp> {
     setState(() => _isLoading = false);
   }
 
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Lihat Dokumen'),
-        ),
-        body: Center(
-            child: _isLoading
-                ? Center(child: CircularProgressIndicator())
-                : PDFViewer(document: document)),
-        );
-
-    
+      appBar: AppBar(
+        title: Text('Lihat Dokumen'),
+      ),
+      body: Center(
+          child: _isLoading
+              ? Center(child: CircularProgressIndicator())
+              : PDFViewer(document: document)),
+    );
   }
 }

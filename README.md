@@ -12,7 +12,7 @@ Academic Progress Information System - Next Generation for Thesis Management of 
 
 In the command terminal, run the following commands:
 
-    $ git clone git@github.com:firmangel8/siska_ng.git
+    $ git clone git@github.com:alanarism/siska_ng.git
     $ cd siska_ng
     $ flutter packages get
     $ flutter run
